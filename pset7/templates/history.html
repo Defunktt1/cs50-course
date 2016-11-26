@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hystory
+{% endblock %}
+
+{% block main %}
+    <table class = "table table-striped">
+        <thread>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thread>
+        <body>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.symbol }}</td>
+                    <td>{{ transaction.shares }}</td>
+                    <td>{{ transaction.price | usd }}</td>
+                    <td>{{ transaction.transacted }}</td>
+                </tr>
+            {% endfor %}
+        </body>
+    </table>
+{% endblock %}
